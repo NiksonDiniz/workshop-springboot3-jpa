@@ -8,9 +8,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import com.ndiniz.course.entities.Category;
 import com.ndiniz.course.entities.Order;
 import com.ndiniz.course.entities.User;
 import com.ndiniz.course.entities.enums.OrderStatus;
+import com.ndiniz.course.repositories.CategoryRepository;
 import com.ndiniz.course.repositories.OrderRepository;
 import com.ndiniz.course.repositories.UserRepository;
 
@@ -24,8 +26,17 @@ public class TestConfig implements CommandLineRunner {
 	@Autowired
 	private OrderRepository orderRepository;
 
+	@Autowired
+	private CategoryRepository categoryRepository;
+
 	@Override
 	public void run(String... args) throws Exception {
+
+		Category cat1 = new Category(null, "Electronics");
+		Category cat2 = new Category(null, "Books");
+		Category cat3 = new Category(null, "Computers");
+
+		categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
 
 		// na video aula o id era pra ser null, porém aqui n deu certo.
 		User u1 = new User(1L, "Maria Brown", "maria@gmail.com", "988888888", "123456");
