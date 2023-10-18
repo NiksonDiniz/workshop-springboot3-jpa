@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ndiniz.course.entities.Product;
-import com.ndiniz.course.entities.User;
 import com.ndiniz.course.repositories.ProductRepository;
 
 @Service
